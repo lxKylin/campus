@@ -1,21 +1,38 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from "./components/HelloWorld.vue"
-</script>
-
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <div class="app">
+    <el-config-provider :locale="locale">
+      <router-view></router-view>
+    </el-config-provider>
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+import { ElConfigProvider } from 'element-plus'
+import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+
+// 按需引用element-plus
+// import { ElButton } from 'element-plus'
+// import 'element-plus/theme-chalk/base.css'
+// import 'element-plus/theme-chalk/el-button.css'
+
+export default defineComponent({
+  name: 'App',
+  components: {
+    // ElButton
+    ElConfigProvider
+  },
+  setup() {
+    return {
+      locale: zhCn
+    }
+  }
+})
+</script>
+
+<style lang="less">
+.app {
+  height: 100%;
 }
 </style>

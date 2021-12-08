@@ -9,16 +9,18 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
-    "@jiaminghi/data-view": "^2.10.0",
     "axios": "^0.24.0",
     "dayjs": "^1.10.7",
     "echarts": "^5.2.2",
+    "element-plus": "^1.2.0-beta.5",
     "normalize.css": "^8.0.1",
+    "particles.vue3": "^1.20.5",
     "vue": "^3.2.16",
-    "vue-router": "4",
+    "vue-router": "^4.0.11",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "@types/node": "^16.11.12",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
     "@vitejs/plugin-vue": "^1.9.3",
