@@ -1,6 +1,6 @@
 <template>
   <div class="login-panel">
-    <h1 class="title">智慧校园可视化大屏</h1>
+    <!-- <h1 class="title">智慧校园可视化大屏</h1> -->
     <div class="tabs">
       <login-account ref="accountRef" />
     </div>
@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import LoginAccount from './login-account.vue'
+import LoginAccount from './login-account3.vue'
 import LoginPhone from './login-phone.vue'
 
 export default defineComponent({
@@ -41,7 +41,7 @@ export default defineComponent({
         // console.log('登录')
         // 因为没有传入东西，所以有可能是空的，需要加上? 可选
         // isKeepPassword.value传入判断是否需要记住密码
-        accountRef.value?.loginAction(isKeepPassword.value)
+        // accountRef.value?.loginAction(isKeepPassword.value)
       } else {
         // 执行手机登录逻辑
         phoneRef.value?.loginAction()
@@ -70,6 +70,8 @@ export default defineComponent({
   .tabs {
     background-color: rgba(255, 255, 255, 0.13);
     border: 2px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    height: 100%;
   }
 
   .account-control {
