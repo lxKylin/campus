@@ -38,6 +38,7 @@
                 type="password"
                 class="two-words"
                 v-model.trim="user.password"
+                show-password
               ></el-input>
             </div>
           </el-form-item>
@@ -126,6 +127,9 @@ export default defineComponent({
   padding: 0 0 0 95px !important;
   color: #ffffff !important;
 }
+:deep(.el-checkbox__label) {
+  color: #ffffff;
+}
 
 .login {
   // display: flex;
@@ -209,6 +213,7 @@ export default defineComponent({
       margin-top: 10px;
       display: flex;
       justify-content: space-between;
+      color: #ffffff;
     }
     &__item {
       display: flex;
