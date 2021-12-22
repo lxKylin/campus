@@ -7,5 +7,6 @@ declare module "*.vue" {
   export default component
 }
 
-declare module '@jiaminghi/data-view';
+declare module 'bin-datav';
 declare module 'particles.vue3';
+declare module '@/utils/useDraw';

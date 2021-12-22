@@ -4,8 +4,18 @@ import type { RouteRecordRaw } from 'vue-router' //表示导入的是个类型
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'Login',
-    component: () => import('@/pages/login/Login.vue'), // 注意这里要带上 文件后缀.vue
+    redirect: '/main'
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/pages/login/login.vue'), // 注意这里要带上 文件后缀.vue
+  },
+  {
+    path: '/main',
+    name: 'main',
+    component: () => import('@/pages/main/main.vue')
+    // children: [] -> 根据useMenus来决定
   },
 ]
 

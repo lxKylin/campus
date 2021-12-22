@@ -76,13 +76,13 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import loginPanel from './cpns/login-panel2.vue'
+// import loginPanel from './cpns/login-panel2.vue'
 import { particles } from './config/particles-config'
 // import Particles from '@/components/particles/index.vue'
 
 export default defineComponent({
   components: {
-    loginPanel
+    // loginPanel
     // Particles
   },
   data() {

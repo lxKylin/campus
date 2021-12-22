@@ -9,18 +9,18 @@ const lxRequest = new LXRequest({
   timeout: TIME_OUT,
   // 可以让每个请求单独传入自己的拦截器 可选 只属于lxRequest
   interceptors: {
-    requestInterceptor: (config) => {
-      // 携带token的拦截
-      // 从缓存中取到token
-      const token = localCache.getCache('token')
-      if (token) {
-        // headers请求头 Authorization授权
-        config.headers.Authorization = `Bearer ${token}`
-      }
+    // requestInterceptor: (config) => {
+    //   // 携带token的拦截
+    //   // 从缓存中取到token
+    //   const token = localCache.getCache('token')
+    //   if (token) {
+    //     // headers请求头 Authorization授权
+    //     config.headers.Authorization = `Bearer ${token}`
+    //   }
 
-      // console.log('请求成功的拦截')
-      return config
-    },
+    //   // console.log('请求成功的拦截')
+    //   return config
+    // },
     requestInterceptorCatch: (err) => {
       // console.log('请求失败的拦截')
       return err
