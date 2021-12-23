@@ -17,6 +17,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/pages/main/main.vue')
     // children: [] -> 根据useMenus来决定
   },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'notFound',
+    component: () => import('@/pages/not-found/not-found.vue')
+  }
 ]
 
 const router = createRouter({

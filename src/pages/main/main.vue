@@ -125,12 +125,11 @@ export default defineComponent({
 }
 .before-bg-style() {
   position: absolute;
-
   top: 0;
   height: 50px;
   width: 50px;
   // background-color: transparent;
-  background-color: #0f1325;
+  background-color: #02050c;
 }
 .index {
   color: #d3d6dd;
