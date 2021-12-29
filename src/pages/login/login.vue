@@ -150,7 +150,7 @@ export default defineComponent({
   overflow: hidden;
 
   &__particles {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
