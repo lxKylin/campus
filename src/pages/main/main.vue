@@ -2,8 +2,8 @@
   <div class="index" ref="appRef">
     <Particles id="tsparticles" class="login__particles" :options="particles" />
     <div class="bg">
-      <bv-loading v-if="loading">Loading...</bv-loading>
-      <div class="main" v-else>
+      <!-- <bv-loading v-if="loading">Loading...</bv-loading> -->
+      <div class="main">
         <div class="lx-flex">
           <!-- 顶部两边 -->
           <bv-decorator name="decorator10" class="dv-dec-10" />
@@ -43,6 +43,9 @@
           </div>
         </div>
       </div>
+      <div class="index__modules">
+        <library />
+      </div>
     </div>
   </div>
 </template>
@@ -57,7 +60,12 @@ import { title, modulesTitle, WEEK } from '@/constant/index'
 import useDraw from '@/utils/useDraw'
 import { formatTime } from '@/utils/time-format'
 
+import Library from './library/library.vue'
+
 export default defineComponent({
+  components: {
+    Library
+  },
   setup() {
     // 加载标识
     const loading = ref<boolean>(true)
@@ -103,7 +111,7 @@ export default defineComponent({
     })
 
     return {
-      loading,
+      // loading,
       particles,
       appRef,
       title,
@@ -143,7 +151,7 @@ export default defineComponent({
   .bg {
     width: 100%;
     height: 100%;
-    padding: 16px 16px 0 16px;
+    padding-top: 15px;
     background-image: url('@/assets/img/pageBg.png');
     background-size: cover;
     background-position: center center;
@@ -193,7 +201,7 @@ export default defineComponent({
       width: 40%;
     }
     .aside-width[data-v-b65cca0a] {
-      margin-right: 370px;
+      margin-right: 360px;
     }
     .react-r-s,
     .react-l-s {
@@ -260,6 +268,10 @@ export default defineComponent({
         grid-template-columns: repeat(2, 50%);
       }
     }
+  }
+  &__modules {
+    margin-top: 15px;
+    padding: 0 10px
   }
 }
 </style>

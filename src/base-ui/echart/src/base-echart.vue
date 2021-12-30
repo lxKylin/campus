@@ -21,7 +21,7 @@ const props = withDefaults(
   }>(),
   {
     width: '100%',
-    height: '360px'
+    height: '300px'
   }
 )
 

@@ -1,51 +1,61 @@
 <template>
-  <el-card class="box-card">
-    <template #header>
-      <div class="card-header">
-        <span>{{ title }}</span>
+  <div class="card">
+    <bv-border-box
+      name="border13"
+      class="card__box"
+    >
+      <card-title>
+        <template #header>
+          <div class="card-header">
+            <span>{{ props.title }}</span>
+          </div>
+        </template>
+      </card-title>
+      <div class="item">
+        <slot></slot>
       </div>
-    </template>
-    <div class="item">
-      <slot></slot>
-    </div>
-  </el-card>
+    </bv-border-box>
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { defineProps, withDefaults } from 'vue'
 
-export default defineComponent({
-  components: {},
+import CardTitle from './card-title.vue'
 
-  props: {
-    title: {
-      type: String,
-      default: 'Title'
-    }
-  },
-
-  setup() {
-    return {}
+// defineProps定义props，withDefaults设置默认值
+// 泛型表示接收一些什么样的属性
+const props = withDefaults(
+  defineProps<{
+    title?: string
+  }>(),
+  {
+    title: '',
   }
-})
+)
 </script>
 
 <style lang="less" scoped>
-.box-card {
-  &:deep(.el-card__header) {
-    padding: 10px 20px !important;
+.card {
+  .card-header {
+    display: flex;
+    height: 30px;
+    padding-top: 15px;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    // background-color: rgba(255, 255, 255, 0.13);
   }
-}
 
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 30px;
-}
-
-.item {
-  margin-bottom: 10px;
-  // border: 1px solid red;
+  .item {
+    margin: 0 auto;
+    // margin-bottom: 10px;
+    background-color: transparent;
+    // background-color: rgba(255, 255, 255, 0.13);
+    // border: 1px solid red;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+  }
 }
 </style>
