@@ -123,6 +123,21 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
+/* 定义一个从左向右的扫描动画 */
+@keyframes scanning {
+  0% {
+    left: 0;
+    opacity: 0.7;
+  }
+  90% {
+    left: 100%;
+    opacity: 0.3;
+  }
+  100% {
+    right: -20px;
+    opacity: 0;
+  }
+}
 .bg-style() {
   font-size: 18px;
   width: 300px;
@@ -271,7 +286,23 @@ export default defineComponent({
   }
   &__modules {
     margin-top: 15px;
-    padding: 0 10px
+    padding: 0 10px;
+  }
+  .text {
+    position: relative;
+    overflow: hidden;
+    &::after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 30px;
+      height: 100%;
+      background-image: linear-gradient(to right, transparent 0%, #00ffff 100%);
+      z-index: -10;
+      animation: scanning 2s infinite linear;
+      opacity: 0.7;
+    }
   }
 }
 </style>

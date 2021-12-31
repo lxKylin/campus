@@ -13,7 +13,7 @@ import { defineComponent, reactive } from 'vue'
 export default defineComponent({
   setup() {
     let config = reactive({
-      header: ['时间', '读者姓名', '流动事物'],
+      header: ['时间', '读者姓名', '流动事务'],
       data: [
         ['2021-12-30 17:10:10', 'Kylin', '[续借]《毕业当兵去》'],
         ['2021-12-30 17:10:10', 'Arms', '[续借]《毕业当兵去》'],
