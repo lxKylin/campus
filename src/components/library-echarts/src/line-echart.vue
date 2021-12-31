@@ -12,8 +12,8 @@ import BaseEchart from '@/base-ui/echart'
 const props = withDefaults(
   defineProps<{
     title?: string
-    xLabels: string[]
-    values: any[]
+    xLabels?: string[]
+    values?: any[]
   }>(),
   {
     title: ''

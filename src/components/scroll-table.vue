@@ -59,6 +59,7 @@ export default defineComponent({
   }
   & :deep(.rows) {
     margin: 0 5px;
+    height: 211px !important;
   }
   & :deep(.row-item) {
     height: 15px;

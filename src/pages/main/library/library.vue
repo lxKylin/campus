@@ -17,7 +17,7 @@
         </lx-card>
       </el-col>
     </el-row>
-    <el-row :gutter="10">
+    <el-row class="library__row" :gutter="5">
       <el-col class="library__row__col" :span="6">
         <lx-card class="card" title="书籍借阅云图">
           <word-cloud-echart class="echart" />
@@ -34,8 +34,22 @@
         </lx-card>
       </el-col>
     </el-row>
-    <el-row :gutter="10">
-      <el-col></el-col>
+    <el-row class="library__row" :gutter="5">
+      <el-col class="library__row__col" :span="6">
+        <lx-card class="card" title="书籍借阅云图">
+          <word-cloud-echart class="echart" />
+        </lx-card>
+      </el-col>
+      <el-col class="library__row__col" :span="12">
+        <lx-card class="card" title="年度借阅报告">
+          <line-echart />
+        </lx-card>
+      </el-col>
+      <el-col class="library__row__col" :span="6">
+        <lx-card class="card" title="分类借阅比例">
+
+        </lx-card>
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -69,6 +83,7 @@ export default defineComponent({
 <style lang="less" scoped>
 .library {
   &__row {
+    margin-bottom: 20px;
     &__col {
       & .card {
       }
