@@ -1,6 +1,6 @@
 <template>
   <div class="index" ref="appRef">
-    <Particles id="tsparticles" class="login__particles" :options="particles" />
+    <!-- <Particles id="tsparticles" class="login__particles" :options="particles" /> -->
     <div class="bg">
       <!-- <bv-loading v-if="loading">Loading...</bv-loading> -->
       <div class="main">
@@ -23,15 +23,15 @@
           <div class="lx-flex aside-width">
             <div class="react-left react-l-s bg-color-translucence">
               <span class="react-before"></span>
-              <span class="text action-link">{{ modulesTitle[0] }}</span>
+              <span class="text action-link" @click="handleChangeOne">{{ modulesTitle[0] }}</span>
             </div>
             <div class="react-left ml10">
-              <div class="text action-link">{{ modulesTitle[1] }}</div>
+              <div class="text action-link" @click="handleChangeTwo">{{ modulesTitle[1] }}</div>
             </div>
           </div>
           <div class="lx-flex aside-width aside-width__right">
             <div class="react-right bg-color-translucence mr10">
-              <div class="text action-link fw-b">{{ modulesTitle[2] }}</div>
+              <div class="text action-link fw-b" @click="handleChangeThree">{{ modulesTitle[2] }}</div>
             </div>
             <div class="react-right mr5 react-l-s">
               <span class="react-after"></span>
@@ -44,7 +44,8 @@
         </div>
       </div>
       <div class="index__modules">
-        <library />
+        <!-- <library /> -->
+        <component :is="nameComp[tab]"></component>
       </div>
     </div>
   </div>
@@ -61,10 +62,12 @@ import useDraw from '@/utils/useDraw'
 import { formatTime } from '@/utils/time-format'
 
 import Library from './library/library.vue'
+import Work from './work/work.vue'
 
 export default defineComponent({
   components: {
-    Library
+    Library,
+    Work
   },
   setup() {
     // 加载标识
@@ -77,6 +80,24 @@ export default defineComponent({
       dateYear: '',
       dateWeek: ''
     })
+
+    // 动态组件
+    let tab = ref('work')
+    const nameComp = reactive({
+      library: Library,
+      work: Work
+    })
+
+    // 更换展示组件
+    const handleChangeOne = () => {
+      tab.value = ''
+    }
+    const handleChangeTwo = () => {
+      tab.value = 'work'
+    }
+    const handleChangeThree = () => {
+      tab.value = 'library'
+    }
 
     // 屏幕适配处理
     const { appRef, calcRate, windowDraw, unWindowDraw } = useDraw()
@@ -112,11 +133,16 @@ export default defineComponent({
 
     return {
       // loading,
+      tab,
+      nameComp,
       particles,
       appRef,
       title,
       modulesTitle,
-      timeInfo
+      timeInfo,
+      handleChangeOne,
+      handleChangeTwo,
+      handleChangeThree
     }
   }
 })
