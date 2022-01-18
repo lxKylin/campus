@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { computed, defineProps, withDefaults } from 'vue'
 
-import BaseEchart from '@/base-ui/echart'
+import { BaseEchart } from '@/base-ui/echart'
 
 import { IDataType } from '../../library-echarts/types'
 
@@ -16,7 +16,7 @@ import { convertData } from '../../library-echarts/utils/convert-data'
 const props = withDefaults(
   defineProps<{
     title?: string
-    mapData: IDataType[]
+    mapData?: IDataType[]
   }>(),
   {
     title: ''

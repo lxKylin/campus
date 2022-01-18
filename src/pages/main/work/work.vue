@@ -1,17 +1,17 @@
 <template>
   <div class="work">
     <el-row class="work__row" :gutter="5">
-      <el-col class="work__row__col" :span="3">
+      <el-col class="work__row__col" :span="4">
         <lx-card class="card" title="分类借阅比例">
           <!-- <pie-echart class="echart" :pieData="pieData" /> -->
         </lx-card>
       </el-col>
-      <el-col class="work__row__col" :span="18">
+      <el-col class="work__row__col" :span="16">
         <lx-card class="card" title="实时借还动态">
           <scroll-table />
         </lx-card>
       </el-col>
-      <el-col class="work__row__col" :span="3">
+      <el-col class="work__row__col" :span="4">
         <lx-card class="card" title="图书借阅概览">
 
         </lx-card>

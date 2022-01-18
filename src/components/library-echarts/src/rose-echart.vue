@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { defineProps, computed } from 'vue'
 
-import BaseEchart from '@/base-ui/echart'
+import { BaseEchart } from '@/base-ui/echart'
 
 import { IDataType } from '../types'
 

@@ -9,7 +9,7 @@ import { computed, defineProps, withDefaults } from 'vue'
 
 import * as echarts from 'echarts'
 
-import BaseEchart from '@/base-ui/echart'
+import { BaseEchart } from '@/base-ui/echart'
 
 const props = withDefaults(
   defineProps<{

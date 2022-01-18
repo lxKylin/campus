@@ -1,22 +1,22 @@
 <template>
   <div class="map-echart">
-    <base-echart :options="options"></base-echart>
+    <map-echart :options="options"></map-echart>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, defineProps, withDefaults } from 'vue'
 
-import BaseEchart from '@/base-ui/echart'
+import { MapEchart } from '@/base-ui/echart'
 
-import { IDataType } from '../../library-echarts/types'
+import { IDataType } from '../types'
 
-import { convertData } from '../../library-echarts/utils/convert-data'
+import { convertData } from '../utils/convert-data'
 
 const props = withDefaults(
   defineProps<{
     title?: string
-    mapData: IDataType[]
+    mapData?: IDataType[]
   }>(),
   {
     title: ''

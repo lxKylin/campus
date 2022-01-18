@@ -8,7 +8,7 @@
 import * as echarts from 'echarts'
 import 'echarts-wordcloud'
 
-import BaseEchart from '@/base-ui/echart'
+import { BaseEchart } from '@/base-ui/echart'
 
 import { computed, defineProps, withDefaults, reactive } from 'vue'
 
