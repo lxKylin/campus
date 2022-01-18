@@ -7,9 +7,9 @@
         </lx-card>
       </el-col>
       <el-col class="work__row__col" :span="16">
-        <lx-card class="card" title="实时借还动态">
+        <lx-card-two class="card" title="实时借还动态">
           <scroll-table />
-        </lx-card>
+        </lx-card-two>
       </el-col>
       <el-col class="work__row__col" :span="4">
         <lx-card class="card" title="图书借阅概览">
@@ -57,7 +57,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 
-import LxCard from '@/base-ui/card'
+import {LxCard, LxCardTwo} from '@/base-ui/card'
 
 import { PieEchart, WordCloudEchart, LineEchart } from '@/components/library-echarts'
 import ScrollTable from '@/components/scroll-table.vue'
@@ -65,6 +65,7 @@ import ScrollTable from '@/components/scroll-table.vue'
 export default defineComponent({
   components: {
     LxCard,
+    LxCardTwo,
     PieEchart,
     ScrollTable,
     WordCloudEchart,

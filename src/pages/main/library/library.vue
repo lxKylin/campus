@@ -12,9 +12,7 @@
         </lx-card>
       </el-col>
       <el-col class="library__row__col" :span="6">
-        <lx-card class="card" title="图书借阅概览">
-
-        </lx-card>
+        <lx-card class="card" title="图书借阅概览"> </lx-card>
       </el-col>
     </el-row>
     <el-row class="library__row" :gutter="5">
@@ -29,9 +27,7 @@
         </lx-card>
       </el-col>
       <el-col class="library__row__col" :span="6">
-        <lx-card class="card" title="月度书籍借阅Top5">
-
-        </lx-card>
+        <lx-card class="card" title="月度书籍借阅Top5"> </lx-card>
       </el-col>
     </el-row>
     <el-row class="library__row" :gutter="5">
@@ -46,9 +42,7 @@
         </lx-card>
       </el-col>
       <el-col class="library__row__col" :span="6">
-        <lx-card class="card" title="年度书籍借阅Top5">
-
-        </lx-card>
+        <lx-card class="card" title="年度书籍借阅Top5"> </lx-card>
       </el-col>
     </el-row>
   </div>
@@ -57,9 +51,13 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 
-import LxCard from '@/base-ui/card'
+import { LxCard } from '@/base-ui/card'
 
-import { PieEchart, WordCloudEchart, LineEchart } from '@/components/library-echarts'
+import {
+  PieEchart,
+  WordCloudEchart,
+  LineEchart
+} from '@/components/library-echarts'
 import ScrollTable from '@/components/scroll-table.vue'
 
 export default defineComponent({
