@@ -24,7 +24,7 @@ const props = withDefaults(
   }
 )
 
-let geoGpsMap = [119.4543, 25.9222]
+let geoGpsMap = [119.306239, 26.075302]
 let t = 1 //流入流出控制
 let r = 1 //右侧流入流出文字控制
 

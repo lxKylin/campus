@@ -3,7 +3,7 @@
     <el-row class="work__row" :gutter="5">
       <el-col class="work__row__col" :span="4">
         <lx-card class="card" title="生源各项比例">
-          <!-- <pie-echart class="echart" :pieData="pieData" /> -->
+          <water-polo-echart />
         </lx-card>
       </el-col>
       <el-col class="work__row__col" :span="16">
@@ -13,7 +13,7 @@
       </el-col>
       <el-col class="work__row__col" :span="4">
         <lx-card class="card" title="毕业生就业各项比例">
-
+          <water-polo-echart />
         </lx-card>
       </el-col>
     </el-row>
@@ -44,7 +44,7 @@ import {LxCard, LxCardTwo} from '@/base-ui/card'
 
 import { PieEchart, WordCloudEchart, LineEchart } from '@/components/library-echarts'
 import ScrollTable from '@/components/scroll-table.vue'
-import { MapEchart } from '@/components/work-echarts/'
+import { MapEchart, WaterPoloEchart } from '@/components/work-echarts'
 
 export default defineComponent({
   components: {
@@ -54,7 +54,8 @@ export default defineComponent({
     ScrollTable,
     WordCloudEchart,
     LineEchart,
-    MapEchart
+    MapEchart,
+    WaterPoloEchart
   },
 
   setup() {

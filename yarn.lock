@@ -885,6 +885,11 @@
     "domelementtype" "^2.2.0"
     "domhandler" "^4.2.0"
 
+"echarts-liquidfill@^3.1.0":
+  "integrity" "sha512-5Dlqs/jTsdTUAsd+K5LPLLTgrbbNORUSBQyk8PSy1Mg2zgHDWm83FmvA4s0ooNepCJojFYRITTQ4GU1UUSKYLw=="
+  "resolved" "https://registry.npmjs.org/echarts-liquidfill/-/echarts-liquidfill-3.1.0.tgz"
+  "version" "3.1.0"
+
 "echarts-wordcloud@^2.0.0":
   "integrity" "sha512-K7l6pTklqdW7ZWzT/1CS0KhBSINr/cd7c5N1fVMzZMwLQHEwT7x+nivK7g5hkVh7WNcAv4Dn6/ZS5zMKRozC1g=="
   "resolved" "https://registry.npmjs.org/echarts-wordcloud/-/echarts-wordcloud-2.0.0.tgz"
