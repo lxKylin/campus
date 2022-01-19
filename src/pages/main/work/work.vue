@@ -18,21 +18,21 @@
       </el-col>
     </el-row>
     <el-row class="work__row" :gutter="5">
-      <el-col class="work__row__col" :span="6">
+      <!-- <el-col class="work__row__col" :span="4">
         <lx-card class="card" title="书籍借阅云图">
           <word-cloud-echart class="echart" />
         </lx-card>
-      </el-col>
-      <el-col class="work__row__col" :span="12">
-        <lx-card class="card" title="年度借阅报告">
+      </el-col> -->
+      <el-col class="work__row__col" :span="24">
+        <lx-card class="card" title="各行业就业分布">
           <line-echart />
         </lx-card>
       </el-col>
-      <el-col class="work__row__col" :span="6">
+      <!-- <el-col class="work__row__col" :span="4">
         <lx-card class="card" title="月度书籍借阅Top5">
 
         </lx-card>
-      </el-col>
+      </el-col> -->
     </el-row>
   </div>
 </template>
