@@ -2,9 +2,9 @@ import * as echarts from 'echarts'
 
 // 注册地图
 import * as ChinaMapData from '../data/china.json'
-const data = (ChinaMapData as any).data
+const ChinaMap = (ChinaMapData as any)
 
-echarts.registerMap('china', data)
+echarts.registerMap('china', ChinaMap)
 
 export default function (el: HTMLElement) {
   // 可传三个参数(dom, theme, 渲染器)

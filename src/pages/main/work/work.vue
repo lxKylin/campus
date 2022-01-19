@@ -2,17 +2,17 @@
   <div class="work">
     <el-row class="work__row" :gutter="5">
       <el-col class="work__row__col" :span="4">
-        <lx-card class="card" title="分类借阅比例">
+        <lx-card class="card" title="生源各项比例">
           <!-- <pie-echart class="echart" :pieData="pieData" /> -->
         </lx-card>
       </el-col>
       <el-col class="work__row__col" :span="16">
-        <lx-card-two class="card" title="实时借还动态">
-          <scroll-table />
+        <lx-card-two class="card" title="FIT生源分布/毕业去向">
+          <map-echart />
         </lx-card-two>
       </el-col>
       <el-col class="work__row__col" :span="4">
-        <lx-card class="card" title="图书借阅概览">
+        <lx-card class="card" title="毕业生就业各项比例">
 
         </lx-card>
       </el-col>
@@ -34,23 +34,6 @@
         </lx-card>
       </el-col>
     </el-row>
-    <el-row class="work__row" :gutter="5">
-      <el-col class="work__row__col" :span="6">
-        <lx-card class="card" title="书籍借阅云图">
-          <word-cloud-echart class="echart" />
-        </lx-card>
-      </el-col>
-      <el-col class="work__row__col" :span="12">
-        <lx-card class="card" title="年度借阅报告">
-          <line-echart />
-        </lx-card>
-      </el-col>
-      <el-col class="work__row__col" :span="6">
-        <lx-card class="card" title="年度书籍借阅Top5">
-
-        </lx-card>
-      </el-col>
-    </el-row>
   </div>
 </template>
 
@@ -61,6 +44,7 @@ import {LxCard, LxCardTwo} from '@/base-ui/card'
 
 import { PieEchart, WordCloudEchart, LineEchart } from '@/components/library-echarts'
 import ScrollTable from '@/components/scroll-table.vue'
+import { MapEchart } from '@/components/work-echarts/'
 
 export default defineComponent({
   components: {
@@ -69,7 +53,8 @@ export default defineComponent({
     PieEchart,
     ScrollTable,
     WordCloudEchart,
-    LineEchart
+    LineEchart,
+    MapEchart
   },
 
   setup() {

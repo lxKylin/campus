@@ -10,6 +10,9 @@ declare module "*.vue" {
 declare module 'bin-datav';
 declare module 'particles.vue3';
 declare module '@/utils/useDraw';
+declare module '@types/jquery';
+
+declare module '*.json'
 declare module '*.json' {
   const value: any;
   export default value;

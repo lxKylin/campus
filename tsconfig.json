@@ -14,6 +14,6 @@
       "@/*":["src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/components/particles/particles.js", "src/components/particles/particles.js", "src/utils/useDraw.ts"]
+  "include": ["src/**/*.ts", "src/**/*.json", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/components/particles/particles.js", "src/components/particles/particles.js", "src/utils/useDraw.ts"]
 }
 
