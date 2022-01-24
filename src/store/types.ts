@@ -1,4 +1,4 @@
-// import { ILoginState } from './login/types'
+import { ILoginState } from './login/types'
 // import { ISystemState } from './main/system/types'
 // import { IDashboardState } from './main/analysis/types'
 
@@ -14,7 +14,7 @@ export interface IRootState {
 
 // setup中使用useStore技巧
 export interface IRootWithModule {
-  // loginModule: ILoginState
+  loginModule: ILoginState
   // systemModule: ISystemState
   // dashboardModule: IDashboardState
 }

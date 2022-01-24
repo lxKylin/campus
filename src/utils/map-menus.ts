@@ -12,7 +12,7 @@ export function mapMenusToRoutes(useMenus: any[]): RouteRecordRaw[] {
   // 加载某个文件夹， true表示递归的查找， 匹配.ts结尾的文件
   const routeFiles = require.context('../router/main', true, /\.ts/)
   // 拿到../router/main所有.ts文件路径
-  routeFiles.keys().forEach((key) => {
+  routeFiles.keys().forEach((key: any) => {
     const route = require('../router/main' + key.split('.')[1])
     // 拿到所有路由
     allRoutes.push(route.default)

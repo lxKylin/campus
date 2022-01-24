@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router' //表示导入的是个类型
 
+import localCache from '@/utils/cache'
+import { firstMenu } from '@/utils/map-menus'
+
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -28,6 +31,26 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 })
+
+// router.beforeEach((to) => {
+//   // 页面跳转之前 不是登录页面才判断是否登录
+//   if (to.path !== '/login') {
+//     const token = localCache.getCache('token')
+//     if (!token) {
+//       return '/login'
+//     }
+
+//     // 获取所有路由
+//     // console.log(router.getRoutes())
+//     // 即将要跳转到的route对象
+//     // console.log(to)
+
+//     if (to.path === '/main') {
+//       // main/analysis/overview
+//       return firstMenu.url
+//     }
+//   }
+// })
 
 export default router
 
