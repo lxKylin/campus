@@ -33,7 +33,7 @@ let d1: any = {
   黑龙江: 4093,
   内蒙古: 1157,
   吉林: 4903,
-  北京市: 2667,
+  北京: 2667,
   辽宁: 8331,
   河北: 23727,
   天津: 681,
@@ -59,7 +59,10 @@ let d1: any = {
   广西: 125,
   海南: 7,
   上海: 2155,
-  西藏: 0
+  西藏: 0,
+  台湾: 324,
+  香港: 253,
+  澳门: 102
 }
 
 let d2: any = {
@@ -67,7 +70,7 @@ let d2: any = {
   黑龙江: 5,
   内蒙古: 54,
   吉林: 10,
-  北京市: 0,
+  北京: 0,
   辽宁: 0,
   河北: 1679,
   天津: 1,
@@ -93,7 +96,10 @@ let d2: any = {
   广西: 2271,
   海南: 59,
   上海: 8,
-  西藏: 0
+  西藏: 0,
+  台湾: 24,
+  香港: 134,
+  澳门: 432
 }
 
 let d3: any = {
@@ -101,7 +107,7 @@ let d3: any = {
   黑龙江: 1944,
   内蒙古: 2954,
   吉林: 3482,
-  北京市: 1808,
+  北京: 1808,
   辽宁: 5488,
   河北: 27035,
   天津: 2270,
@@ -127,7 +133,10 @@ let d3: any = {
   广西: 1009,
   海南: 0,
   上海: 1988,
-  西藏: 0
+  西藏: 0,
+  台湾: 100,
+  香港: 57,
+  澳门: 89
 }
 
 let d4: any = {
@@ -135,7 +144,7 @@ let d4: any = {
   黑龙江: 4093,
   内蒙古: 1157,
   吉林: 4903,
-  北京市: 2667,
+  北京: 2667,
   辽宁: 8331,
   河北: 23727,
   天津: 681,
@@ -161,7 +170,10 @@ let d4: any = {
   广西: 125,
   海南: 7,
   上海: 2155,
-  西藏: 0
+  西藏: 0,
+  台湾: 456,
+  香港: 231,
+  澳门: 234
 }
 
 let d5: any = {
@@ -169,7 +181,7 @@ let d5: any = {
   黑龙江: 5,
   内蒙古: 54,
   吉林: 10,
-  北京市: 0,
+  北京: 0,
   辽宁: 0,
   河北: 1679,
   天津: 1,
@@ -195,45 +207,50 @@ let d5: any = {
   广西: 2271,
   海南: 59,
   上海: 8,
-  西藏: 0
+  西藏: 0,
+  台湾: 34,
+  香港: 67,
+  澳门: 54
 }
 
 let d6: any = {
-  江苏: 11788,
-  黑龙江: 1944,
-  内蒙古: 2954,
-  吉林: 3482,
-  北京市: 1808,
-  辽宁: 5488,
-  河北: 27035,
-  天津: 2270,
-  山西: 13623,
-  陕西: 4221,
-  甘肃: 754,
-  宁夏: 1783,
-  青海: 91,
-  新疆: 1907,
-  四川: 4905,
-  重庆: 1420,
-  山东: 39781,
-  河南: 16154,
-  安徽: 7914,
-  湖北: 6802,
-  浙江: 5812,
-  福建: 3345,
-  江西: 4996,
-  湖南: 5627,
-  贵州: 1504,
-  云南: 2725,
-  广东: 6339,
-  广西: 1009,
-  海南: 0,
-  上海: 1988,
-  西藏: 0
+  江苏: 5,
+  黑龙江: 2,
+  内蒙古: 2,
+  吉林: 3,
+  北京: 60,
+  辽宁: 3,
+  河北: 4,
+  天津: 4,
+  山西: 10,
+  陕西: 10,
+  甘肃: 8,
+  宁夏: 5,
+  青海: 4,
+  新疆: 5,
+  四川: 15,
+  重庆: 15,
+  山东: 20,
+  河南: 25,
+  安徽: 20,
+  湖北: 30,
+  浙江: 80,
+  福建: 400,
+  江西: 50,
+  湖南: 46,
+  贵州: 38,
+  云南: 37,
+  广东: 40,
+  广西: 36,
+  海南: 2,
+  上海: 100,
+  西藏: 2,
+  台湾: 5,
+  香港: 10,
+  澳门: 10
 }
 
 let colors = ['#1DE9B6', '#EEDD78', '#32C5E9', '#FFDB5C', '#37A2DA', '#04B9FF']
-let colorIndex = 0
 
 let year = ['2019-09', '2020-06', '2020-09', '2021-06', '2021-09', '2022-06']
 let mapData: any = [[], [], [], [], [], []]
@@ -276,8 +293,8 @@ for (let key in coordinateData) {
   mapData[5].push({
     year: '2022-06',
     name: key,
-    value: (d6[key] / 100).toFixed(0),
-    value1: (d6[key] / 100).toFixed(0)
+    value: d6[key],
+    value1: d6[key]
   })
 }
 
@@ -332,46 +349,231 @@ let convertToLineData = (data: any, gps: any) => {
 }
 
 let optionData: {
-title: ({ text: string; left: string; top: string; textStyle: { color: string; fontSize: number }; id?: undefined } | { id: string; text: string; left: string; top: string; textStyle: { color: string; fontSize: number } })[]; xAxis: { type: string; scale: boolean; position: string; min: number; boundaryGap: boolean; splitLine: { show: boolean }; axisLine: { show: boolean }; axisTick: { show: boolean }; axisLabel: { margin: number; textStyle: { color: string } } }; yAxis: { type: string; nameGap: number; axisLine: { show: boolean; lineStyle: { color: string } }; axisTick: { show: boolean; lineStyle: { color: string } }; axisLabel: { interval: number; textStyle: { color: string } }; data: any }; series: ({
-//文字和标志
-name: string; type: string; coordinateSystem: string; data: { name: any; value: any }[]; symbolSize: (val: any) => number; label: { normal: { formatter: string; position: string; show: boolean }; emphasis: { show: boolean; textStyle?: undefined } }; itemStyle: { normal: { color: string; areaColor?: undefined; borderColor?: undefined; shadowBlur?: undefined; shadowColor?: undefined; barBorderRadius?: undefined }; emphasis?: undefined }; map?: undefined; geoIndex?: undefined; aspectScale?: undefined //长宽比
-showLegendSymbol?: undefined; roam?: undefined; animation?: undefined; showEffectOn?: undefined; rippleEffect?: undefined; hoverAnimation?: undefined; zlevel?: undefined; effect?: undefined; lineStyle?: undefined; barMaxWidth?: undefined; symbol?: undefined
-} | {
-type: string; map: string; geoIndex: number; aspectScale: number //长宽比
-showLegendSymbol: boolean // 存在legend时显示
-label: { normal: { show: boolean; formatter?: undefined; position?: undefined }; emphasis: { show: boolean; textStyle: { color: string } } }; roam: boolean; itemStyle: { normal: { areaColor: string; borderColor: string; color?: undefined; shadowBlur?: undefined; shadowColor?: undefined; barBorderRadius?: undefined }; emphasis: { areaColor: string } }; animation: boolean; data: any
-//文字和标志
-name?: undefined; coordinateSystem?: undefined; symbolSize?: undefined; showEffectOn?: undefined; rippleEffect?: undefined; hoverAnimation?: undefined; zlevel?: undefined; effect?: undefined; lineStyle?: undefined; barMaxWidth?: undefined; symbol?: undefined
-} | {
-//  name: 'Top 5',
-type: string; coordinateSystem: string; data: { name: any; value: any }[]; symbolSize: (val: any) => number; showEffectOn: string; rippleEffect: { brushType: string }; hoverAnimation: boolean; label: { normal: { formatter: string; position: string; show: boolean }; emphasis?: undefined }; itemStyle: { normal: { color: string; shadowBlur: number; shadowColor: string; areaColor?: undefined; borderColor?: undefined; barBorderRadius?: undefined }; emphasis?: undefined }; zlevel: number
-//文字和标志
-name?: undefined; map?: undefined; geoIndex?: undefined; aspectScale?: undefined //长宽比
-showLegendSymbol?: undefined; roam?: undefined; animation?: undefined; effect?: undefined; lineStyle?: undefined; barMaxWidth?: undefined; symbol?: undefined
-} | {
-type: string; zlevel: number; effect: {
-show: boolean; period: number //箭头指向速度，值越小速度越快
-trailLength: number //特效尾迹长度[0,1]值越大，尾迹越长重
-symbol: string //箭头图标
-symbolSize: number //图标大小
-}; lineStyle: {
-normal: {
-color: string; width: number //尾迹线条宽度
-opacity: number //尾迹线条透明度
-curveness: number //尾迹线条曲直度
-}
-}; data: ({ coord: any; value?: undefined } | { coord: any; value: any })[][]
-//文字和标志
-name?: undefined; coordinateSystem?: undefined; symbolSize?: undefined; label?: undefined; itemStyle?: undefined; map?: undefined; geoIndex?: undefined; aspectScale?: undefined //长宽比
-showLegendSymbol?: undefined; roam?: undefined; animation?: undefined; showEffectOn?: undefined; rippleEffect?: undefined; hoverAnimation?: undefined; barMaxWidth?: undefined; symbol?: undefined
-} | {
-zlevel: number; type: string; barMaxWidth: number; symbol: string; itemStyle: { normal: { color: string; barBorderRadius: number[]; areaColor?: undefined; borderColor?: undefined; shadowBlur?: undefined; shadowColor?: undefined }; emphasis?: undefined }; data: any
-//文字和标志
-name?: undefined; coordinateSystem?: undefined; symbolSize?: undefined; label?: undefined; map?: undefined; geoIndex?: undefined; aspectScale?: undefined //长宽比
-showLegendSymbol?: undefined; roam?: undefined; animation?: undefined; showEffectOn?: undefined; rippleEffect?: undefined; hoverAnimation?: undefined; effect?: undefined; lineStyle?: undefined
-})[]
+  title: (
+    | {
+        text: string
+        left: string
+        top: string
+        textStyle: { color: string; fontSize: number }
+        id?: undefined
+      }
+    | {
+        id: string
+        text: string
+        left: string
+        top: string
+        textStyle: { color: string; fontSize: number }
+      }
+  )[]
+  xAxis: {
+    type: string
+    scale: boolean
+    position: string
+    min: number
+    boundaryGap: boolean
+    splitLine: { show: boolean }
+    axisLine: { show: boolean }
+    axisTick: { show: boolean }
+    axisLabel: { margin: number; textStyle: { color: string } }
+  }
+  yAxis: {
+    type: string
+    nameGap: number
+    axisLine: { show: boolean; lineStyle: { color: string } }
+    axisTick: { show: boolean; lineStyle: { color: string } }
+    axisLabel: { interval: number; textStyle: { color: string } }
+    data: any
+  }
+  series: (
+    | {
+        //文字和标志
+        name: string
+        type: string
+        coordinateSystem: string
+        data: { name: any; value: any }[]
+        symbolSize: (val: any) => number
+        label: {
+          normal: { formatter: string; position: string; show: boolean }
+          emphasis: { show: boolean; textStyle?: undefined }
+        }
+        itemStyle: {
+          normal: {
+            color: string
+            areaColor?: undefined
+            borderColor?: undefined
+            shadowBlur?: undefined
+            shadowColor?: undefined
+            barBorderRadius?: undefined
+          }
+          emphasis?: undefined
+        }
+        map?: undefined
+        geoIndex?: undefined
+        aspectScale?: undefined //长宽比
+        showLegendSymbol?: undefined
+        roam?: undefined
+        animation?: undefined
+        showEffectOn?: undefined
+        rippleEffect?: undefined
+        hoverAnimation?: undefined
+        zlevel?: undefined
+        effect?: undefined
+        lineStyle?: undefined
+        barMaxWidth?: undefined
+        symbol?: undefined
+      }
+    | {
+        type: string
+        map: string
+        geoIndex: number
+        aspectScale: number //长宽比
+        showLegendSymbol: boolean // 存在legend时显示
+        label: {
+          normal: { show: boolean; formatter?: undefined; position?: undefined }
+          emphasis: { show: boolean; textStyle: { color: string } }
+        }
+        roam: boolean
+        itemStyle: {
+          normal: {
+            areaColor: string
+            borderColor: string
+            color?: undefined
+            shadowBlur?: undefined
+            shadowColor?: undefined
+            barBorderRadius?: undefined
+          }
+          emphasis: { areaColor: string }
+        }
+        animation: boolean
+        data: any
+        //文字和标志
+        name?: undefined
+        coordinateSystem?: undefined
+        symbolSize?: undefined
+        showEffectOn?: undefined
+        rippleEffect?: undefined
+        hoverAnimation?: undefined
+        zlevel?: undefined
+        effect?: undefined
+        lineStyle?: undefined
+        barMaxWidth?: undefined
+        symbol?: undefined
+      }
+    | {
+        //  name: 'Top 5',
+        type: string
+        coordinateSystem: string
+        data: { name: any; value: any }[]
+        symbolSize: (val: any) => number
+        showEffectOn: string
+        rippleEffect: { brushType: string }
+        hoverAnimation: boolean
+        label: {
+          normal: { formatter: string; position: string; show: boolean }
+          emphasis?: undefined
+        }
+        itemStyle: {
+          normal: {
+            color: string
+            shadowBlur: number
+            shadowColor: string
+            areaColor?: undefined
+            borderColor?: undefined
+            barBorderRadius?: undefined
+          }
+          emphasis?: undefined
+        }
+        zlevel: number
+        //文字和标志
+        name?: undefined
+        map?: undefined
+        geoIndex?: undefined
+        aspectScale?: undefined //长宽比
+        showLegendSymbol?: undefined
+        roam?: undefined
+        animation?: undefined
+        effect?: undefined
+        lineStyle?: undefined
+        barMaxWidth?: undefined
+        symbol?: undefined
+      }
+    | {
+        type: string
+        zlevel: number
+        effect: {
+          show: boolean
+          period: number //箭头指向速度，值越小速度越快
+          trailLength: number //特效尾迹长度[0,1]值越大，尾迹越长重
+          symbol: string //箭头图标
+          symbolSize: number //图标大小
+        }
+        lineStyle: {
+          normal: {
+            color: string
+            width: number //尾迹线条宽度
+            opacity: number //尾迹线条透明度
+            curveness: number //尾迹线条曲直度
+          }
+        }
+        data: (
+          | { coord: any; value?: undefined }
+          | { coord: any; value: any }
+        )[][]
+        //文字和标志
+        name?: undefined
+        coordinateSystem?: undefined
+        symbolSize?: undefined
+        label?: undefined
+        itemStyle?: undefined
+        map?: undefined
+        geoIndex?: undefined
+        aspectScale?: undefined //长宽比
+        showLegendSymbol?: undefined
+        roam?: undefined
+        animation?: undefined
+        showEffectOn?: undefined
+        rippleEffect?: undefined
+        hoverAnimation?: undefined
+        barMaxWidth?: undefined
+        symbol?: undefined
+      }
+    | {
+        zlevel: number
+        type: string
+        barMaxWidth: number
+        symbol: string
+        itemStyle: {
+          normal: {
+            color: string
+            barBorderRadius: number[]
+            areaColor?: undefined
+            borderColor?: undefined
+            shadowBlur?: undefined
+            shadowColor?: undefined
+          }
+          emphasis?: undefined
+        }
+        data: any
+        //文字和标志
+        name?: undefined
+        coordinateSystem?: undefined
+        symbolSize?: undefined
+        label?: undefined
+        map?: undefined
+        geoIndex?: undefined
+        aspectScale?: undefined //长宽比
+        showLegendSymbol?: undefined
+        roam?: undefined
+        animation?: undefined
+        showEffectOn?: undefined
+        rippleEffect?: undefined
+        hoverAnimation?: undefined
+        effect?: undefined
+        lineStyle?: undefined
+      }
+  )[]
 }[] = []
-for (let n = 1; n < year.length; n++) {
+for (let n = 0; n < year.length; n++) {
   let statistic_name = '各省' + (r == 1 ? '生源分布' : '毕业去向') + '人数'
   optionData.push({
     title: [
@@ -706,7 +908,6 @@ let myOptions = computed(() => {
     options: optionData
   }
 })
-
 </script>
 
 <style scoped></style>
