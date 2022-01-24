@@ -10,6 +10,8 @@ import 'echarts-wordcloud'
 
 import { BaseEchart } from '@/base-ui/echart'
 
+import { nameList } from '../constant'
+
 import { computed, defineProps, withDefaults, reactive } from 'vue'
 
 const props = withDefaults(
@@ -22,23 +24,6 @@ const props = withDefaults(
     title: ''
   }
 )
-
-let seriesData: any = reactive([
-  { name: '寒冬', value: 11 },
-  { name: '初雪', value: 13 },
-  { name: 'JavaScript权威指南', value: 113 },
-  { name: 'HTML', value: 30 },
-  { name: 'CSS入门至精通', value: 28 },
-  { name: '逆战', value: 18 },
-  { name: 'Vue项目实战', value: 15 },
-  { name: '算法入门', value: 17 },
-  { name: 'Node', value: 57 },
-  { name: 'React', value: 67 },
-  { name: 'MySQL', value: 47 },
-  { name: 'Echarts', value: 37 },
-  { name: '数据可视化', value: 27 },
-  { name: '微信小程序', value: 66 }
-])
 
 let colorList = [
   '#CF4645',
@@ -82,12 +67,31 @@ let fontSizeList = [
   19.5, 20, 20.5, 21, 22, 23, 24
 ]
 let fontSizeListLen = fontSizeList.length
-let customLabel = {
-  color: colorList[Math.floor(Math.random() * colorListLen)],
-  fontSize: fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-}
+
 let bgColor = 'transparent'
 let canDraggable = false
+
+let list: any = reactive([])
+
+const addList = () => {
+  nameList.forEach((item) => {
+    list.push({
+      name: item,
+      value: Math.floor(Math.random() * colorListLen) + 50,
+      draggable: canDraggable,
+      itemStyle: {
+        color: bgColor
+      },
+      label: {
+        color: colorList[Math.floor(Math.random() * colorListLen)],
+        fontSize: fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
+      }
+    })
+  })
+}
+
+addList()
+
 
 const options = computed(() => {
   return {
@@ -160,255 +164,7 @@ const options = computed(() => {
           color: 'auto',
           fontSize: 14
         },
-        data: [
-          {
-            name: '前端工程师',
-            value: 22,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: 'JAVA工程师',
-            value: 12,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: '运维工程师',
-            value: 22,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: '销售',
-            value: 42,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: '项目经理',
-            value: 52,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: '售前经理',
-            value: 62,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: '会计师',
-            value: 72,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: '建筑师',
-            value: 72,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: 'UI设计师',
-            value: 72,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: 'HR',
-            value: 72,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: '测试工程师',
-            value: 72,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: '摄影师',
-            value: 72,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: '算法工程师',
-            value: 72,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: 'C++工程师',
-            value: 72,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: '产品经理',
-            value: 72,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: '护士',
-            value: 72,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: '视频剪辑师',
-            value: 520,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: '律师',
-            value: 72,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          },
-          {
-            name: '医生',
-            value: 72,
-            draggable: canDraggable,
-            itemStyle: {
-              color: bgColor
-            },
-            label: {
-              color: colorList[Math.floor(Math.random() * colorListLen)],
-              fontSize:
-                fontSizeList[Math.floor(Math.random() * fontSizeListLen)]
-            }
-          }
-        ]
+        data: list
       }
     ]
   }
