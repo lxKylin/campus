@@ -3,7 +3,7 @@
     <el-row class="work__row" :gutter="5">
       <el-col class="work__row__col" :span="5">
         <lx-card class="card" title="生源各项比例">
-          <water-polo-echart />
+          <bar-overview />
         </lx-card>
       </el-col>
       <el-col class="work__row__col" :span="14">
@@ -29,43 +29,28 @@
         </lx-card>
       </el-col>
       <el-col class="work__row__col" :span="8">
-        <lx-card class="card" title="活动公告">
-
-        </lx-card>
+        <lx-card class="card" title="活动公告"> </lx-card>
       </el-col>
     </el-row>
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent, ref } from 'vue'
 
-import {LxCard, LxCardTwo} from '@/base-ui/card'
+import { LxCard, LxCardTwo } from '@/base-ui/card'
 
-import { PieEchart, WordCloudEchart, LineEchart } from '@/components/library-echarts'
-import ScrollTable from '@/components/scroll-table.vue'
-import { MapEchart, WaterPoloEchart, WordCloudWork } from '@/components/work-echarts'
-
-export default defineComponent({
-  components: {
-    LxCard,
-    LxCardTwo,
-    PieEchart,
-    ScrollTable,
-    WordCloudEchart,
-    LineEchart,
-    MapEchart,
-    WaterPoloEchart,
-    WordCloudWork
-  },
-
-  setup() {
-    const pieData = ref()
-    return {
-      pieData
-    }
-  }
-})
+import {
+  PieEchart,
+  WordCloudEchart,
+  LineEchart
+} from '@/components/library-echarts'
+import {
+  MapEchart,
+  WaterPoloEchart,
+  WordCloudWork
+} from '@/components/work-echarts'
+import { BarOverview } from '@/components/overview'
 </script>
 
 <style lang="less" scoped>

@@ -23,15 +23,21 @@
           <div class="lx-flex aside-width">
             <div class="react-left react-l-s bg-color-translucence">
               <span class="react-before"></span>
-              <span class="text action-link" @click="handleChangeOne">{{ modulesTitle[0] }}</span>
+              <span class="text action-link" @click="handleChangeOne">{{
+                modulesTitle[0]
+              }}</span>
             </div>
             <div class="react-left ml10">
-              <div class="text action-link" @click="handleChangeTwo">{{ modulesTitle[1] }}</div>
+              <div class="text action-link" @click="handleChangeTwo">
+                {{ modulesTitle[1] }}
+              </div>
             </div>
           </div>
           <div class="lx-flex aside-width aside-width__right">
             <div class="react-right bg-color-translucence mr10">
-              <div class="text action-link fw-b" @click="handleChangeThree">{{ modulesTitle[2] }}</div>
+              <div class="text action-link fw-b" @click="handleChangeThree">
+                {{ modulesTitle[2] }}
+              </div>
             </div>
             <div class="react-right mr5 react-l-s">
               <span class="react-after"></span>
@@ -51,7 +57,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent, reactive, ref, onMounted, onBeforeUnmount } from 'vue'
 
 import { particles } from './config/particles-config'
@@ -63,88 +69,68 @@ import { formatTime } from '@/utils/time-format'
 
 import Library from './library/library.vue'
 import Work from './work/work.vue'
+import OverView from './overview/overview.vue'
 
-export default defineComponent({
-  components: {
-    Library,
-    Work
-  },
-  setup() {
-    // 加载标识
-    const loading = ref<boolean>(true)
+// 加载标识
+const loading = ref<boolean>(true)
 
-    // 时间内容
-    const timeInfo = reactive({
-      timer: 0,
-      dateDay: '',
-      dateYear: '',
-      dateWeek: ''
-    })
+// 时间内容
+const timeInfo = reactive({
+  timer: 0,
+  dateDay: '',
+  dateYear: '',
+  dateWeek: ''
+})
 
-    // 动态组件
-    let tab = ref('work')
-    const nameComp = reactive({
-      library: Library,
-      work: Work
-    })
+// 动态组件
+let tab = ref('work')
+const nameComp: any = reactive({
+  library: Library,
+  work: Work,
+  overview: OverView
+})
 
-    // 更换展示组件
-    const handleChangeOne = () => {
-      tab.value = ''
-    }
-    const handleChangeTwo = () => {
-      tab.value = 'work'
-    }
-    const handleChangeThree = () => {
-      tab.value = 'library'
-    }
+// 更换展示组件
+const handleChangeOne = () => {
+  tab.value = 'overview'
+}
+const handleChangeTwo = () => {
+  tab.value = 'work'
+}
+const handleChangeThree = () => {
+  tab.value = 'library'
+}
 
-    // 屏幕适配处理
-    const { appRef, calcRate, windowDraw, unWindowDraw } = useDraw()
+// 屏幕适配处理
+const { appRef, calcRate, windowDraw, unWindowDraw } = useDraw()
 
-    // 处理loading展示
-    const changeLoading = () => {
-      setTimeout(() => {
-        loading.value = false
-      }, 1000)
-    }
+// 处理loading展示
+const changeLoading = () => {
+  setTimeout(() => {
+    loading.value = false
+  }, 1000)
+}
 
-    // 处理展示时间格式化
-    const handleTime = () => {
-      timeInfo.timer = window.setInterval(() => {
-        const date = new Date()
-        timeInfo.dateDay = formatTime(date, 'HH: mm: ss')
-        timeInfo.dateYear = formatTime(date, 'yyyy-MM-dd')
-        timeInfo.dateWeek = WEEK[date.getDay()]
-      }, 1000)
-    }
+// 处理展示时间格式化
+const handleTime = () => {
+  timeInfo.timer = window.setInterval(() => {
+    const date = new Date()
+    timeInfo.dateDay = formatTime(date, 'HH: mm: ss')
+    timeInfo.dateYear = formatTime(date, 'yyyy-MM-dd')
+    timeInfo.dateWeek = WEEK[date.getDay()]
+  }, 1000)
+}
 
-    onMounted(() => {
-      changeLoading()
-      handleTime()
-      windowDraw()
-      calcRate()
-    })
+onMounted(() => {
+  changeLoading()
+  handleTime()
+  windowDraw()
+  calcRate()
+})
 
-    onBeforeUnmount(() => {
-      unWindowDraw()
-      clearInterval(timeInfo.timer)
-    })
-
-    return {
-      // loading,
-      tab,
-      nameComp,
-      particles,
-      appRef,
-      title,
-      modulesTitle,
-      timeInfo,
-      handleChangeOne,
-      handleChangeTwo,
-      handleChangeThree
-    }
-  }
+onBeforeUnmount(() => {
+  unWindowDraw()
+  clearInterval(timeInfo.timer)
 })
 </script>
 
