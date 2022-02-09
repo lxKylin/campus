@@ -12,7 +12,9 @@
         </lx-card>
       </el-col>
       <el-col class="library__row__col" :span="6">
-        <lx-card class="card" title="图书借阅概览"> </lx-card>
+        <lx-card class="card" title="图书借阅概览">
+          <overview-echart />
+        </lx-card>
       </el-col>
     </el-row>
     <el-row class="library__row" :gutter="5">
@@ -56,8 +58,10 @@ import { LxCard } from '@/base-ui/card'
 import {
   PieEchart,
   WordCloudEchart,
-  LineEchart
+  LineEchart,
+  OverviewEchart
 } from '@/components/library-echarts'
+
 import ScrollTable from '@/components/scroll-table.vue'
 
 export default defineComponent({
@@ -66,7 +70,8 @@ export default defineComponent({
     PieEchart,
     ScrollTable,
     WordCloudEchart,
-    LineEchart
+    LineEchart,
+    OverviewEchart
   },
 
   setup() {

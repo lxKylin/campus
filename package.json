@@ -13,6 +13,7 @@
     "@types/jquery": "^3.5.13",
     "axios": "^0.24.0",
     "bin-datav": "^0.1.6",
+    "countup.js": "^2.0.8",
     "dayjs": "^1.10.7",
     "echarts": "^5.2.2",
     "echarts-liquidfill": "^3.1.0",

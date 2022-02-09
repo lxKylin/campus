@@ -33,7 +33,7 @@ const options = computed(() => {
       textStyle: {
         // 文本样式
         fontSize: 20,
-        fontWeight: 500,
+        fontWeight: 400,
         color: '#fff'
       }
     }],
@@ -53,7 +53,7 @@ const options = computed(() => {
     series: [
       {
         type: 'liquidFill',
-        name: '全国就业率', // 系列名称，用于tooltip的显示，legend 的图例筛选
+        // name: '全国就业率', // 系列名称，用于tooltip的显示，legend 的图例筛选
         radius: '70%', // 水球图的半径
         center: ['50%', '60%'], // 水球图的中心（圆心）坐标，数组的第一项是横坐标，第二项是纵坐标
         // 水填充图的形状 circle 默认圆形  rect 圆角矩形  triangle 三角形

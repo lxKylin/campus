@@ -2,12 +2,12 @@
   <div class="work">
     <el-row class="work__row" :gutter="5">
       <el-col class="work__row__col" :span="5">
-        <lx-card class="card" title="生源各项比例">
+        <lx-card class="card" title="教师各项比例">
           <bar-overview />
         </lx-card>
       </el-col>
       <el-col class="work__row__col" :span="14">
-        <lx-card-two class="card" title="FIT生源分布/毕业去向">
+        <lx-card-two class="card" title="FIT校园大事件">
           <map-echart />
         </lx-card-two>
       </el-col>
