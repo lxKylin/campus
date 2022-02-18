@@ -58,21 +58,21 @@ const getDashBoardData = (queryInfo: any = {}) => {
   topPanelDatasOne.value = [
     {
       title: '今日借出人数',
-      price: 1234,
+      price: 123,
     },
     {
       title: '今日续借册数',
-      price: 2345,
+      price: 234,
     }
   ]
   topPanelDatasTwo.value = [
     {
       title: '今日借出册数',
-      price: 123,
+      price: 346,
     },
     {
       title: '今日办证人数',
-      price: 666,
+      price: 66,
     }
   ]
 }

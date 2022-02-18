@@ -641,7 +641,7 @@ let myOptions = computed(() => {
       visualMap: {
         min: 0,
         max: 250,
-        left: 'left',
+        left: '2%',
         top: 'bottom',
         text: ['高', '低'],
         textStyle: {
@@ -700,6 +700,7 @@ let myOptions = computed(() => {
     options: optionData
   }
 })
+
 </script>
 
 <style scoped></style>

@@ -176,10 +176,9 @@ const options = computed(() => {
       itemGap: 5,
       formatter: function (name: any) {
         return (
-          '{title|' + name + '} {value|' + objData[name].value + '}  {title|人}'
+          '{title|' + name + '} {value|' + objData[name].value + '}'
         )
       },
-
       textStyle: {
         rich: {
           title: {

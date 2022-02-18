@@ -1,56 +1,82 @@
 <template>
   <div class="work">
     <el-row class="work__row" :gutter="5">
-      <el-col class="work__row__col" :span="5">
-        <lx-card class="card" title="教师各项比例">
-          <bar-overview />
+      <el-col class="work__row__col" :span="6">
+        <lx-card class="card" title="师生各项比例">
+          <el-row>
+            <el-col :span="12">
+              <TeacherOverview />
+            </el-col>
+            <el-col :span="12">
+              <StudentOverview />
+            </el-col>
+          </el-row>
         </lx-card>
       </el-col>
-      <el-col class="work__row__col" :span="14">
-        <lx-card-two class="card" title="FIT校园大事件">
-          <map-echart />
-        </lx-card-two>
+      <el-col class="work__row__col" :span="12">
+        <lx-card class="card" title="FIT校园大事件">
+          <View />
+        </lx-card>
       </el-col>
-      <el-col class="work__row__col" :span="5">
-        <lx-card class="card" title="毕业生职业云图">
-          <WordCloudWork />
+      <el-col class="work__row__col" :span="6">
+        <lx-card class="card" title="教学科研成果">
+          <KeYan />
         </lx-card>
       </el-col>
     </el-row>
     <el-row class="work__row" :gutter="5">
-      <!-- <el-col class="work__row__col" :span="4">
-        <lx-card class="card" title="书籍借阅云图">
-          <word-cloud-echart class="echart" />
+      <el-col class="work__row__col" :span="6">
+        <lx-card class="card" title="师生男女比例">
+          <el-row>
+            <el-col :span="24">
+              <NanNv />
+            </el-col>
+          </el-row>
         </lx-card>
-      </el-col> -->
+      </el-col>
+      <el-col class="work__row__col" :span="12">
+        <lx-card class="card" title="FIT部门/社团活动预告">
+          <YuGao />
+        </lx-card>
+      </el-col>
+      <el-col class="work__row__col" :span="6">
+        <lx-card class="card" title="招生专业Top5">
+          <ZhaoSheng />
+        </lx-card>
+      </el-col>
+    </el-row>
+    <el-row class="work__row" :gutter="5">
       <el-col class="work__row__col" :span="16">
-        <lx-card class="card" title="各行业就业分布">
-          <line-echart />
+        <lx-card class="card" title="校部门/社团Top10">
+          <BuMenAndSheTuan />
         </lx-card>
       </el-col>
       <el-col class="work__row__col" :span="8">
-        <lx-card class="card" title="活动公告"> </lx-card>
+        <lx-card class="card" title="开设学院及专业">
+          <XueYuan />
+        </lx-card>
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script setup lang="ts">
-import { defineComponent, ref } from 'vue'
 
-import { LxCard, LxCardTwo } from '@/base-ui/card'
+import { LxCard } from '@/base-ui/card'
 
 import {
-  PieEchart,
-  WordCloudEchart,
-  LineEchart
-} from '@/components/library-echarts'
-import {
-  MapEchart,
-  WaterPoloEchart,
-  WordCloudWork
-} from '@/components/work-echarts'
-import { BarOverview } from '@/components/overview'
+  TeacherOverview,
+  StudentOverview,
+  View,
+  KeYan,
+  TeacherMan,
+  BuMen,
+  BuMenAndSheTuan,
+  XueYuan,
+  NanNv,
+  YuGao,
+  ZhaoSheng
+} from '@/components/overview'
 </script>
 
 <style lang="less" scoped>

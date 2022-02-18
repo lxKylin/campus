@@ -7,7 +7,7 @@
         </lx-card>
       </el-col>
       <el-col class="library__row__col" :span="12">
-        <lx-card class="card" title="实时借还动态">
+        <lx-card class="card" title="借还动态">
           <scroll-table />
         </lx-card>
       </el-col>
@@ -25,17 +25,19 @@
       </el-col>
       <el-col class="library__row__col" :span="12">
         <lx-card class="card" title="年度借阅报告">
-          <line-echart />
+          <YearTop />
         </lx-card>
       </el-col>
       <el-col class="library__row__col" :span="6">
-        <lx-card class="card" title="月度书籍借阅Top5"> </lx-card>
+        <lx-card class="card" title="月度书籍借阅Top5">
+          <MonthTop />
+        </lx-card>
       </el-col>
     </el-row>
     <el-row class="library__row" :gutter="5">
       <el-col class="library__row__col" :span="6">
-        <lx-card class="card" title="书籍借阅云图">
-          <word-cloud-echart class="echart" />
+        <lx-card class="card" title="馆藏书量">
+          <BookSum class="echart" />
         </lx-card>
       </el-col>
       <el-col class="library__row__col" :span="12">
@@ -44,7 +46,9 @@
         </lx-card>
       </el-col>
       <el-col class="library__row__col" :span="6">
-        <lx-card class="card" title="年度书籍借阅Top5"> </lx-card>
+        <lx-card class="card" title="年度书籍借阅Top5">
+          <MonthTop />
+        </lx-card>
       </el-col>
     </el-row>
   </div>
@@ -59,7 +63,10 @@ import {
   PieEchart,
   WordCloudEchart,
   LineEchart,
-  OverviewEchart
+  OverviewEchart,
+  YearTop,
+  MonthTop,
+  BookSum
 } from '@/components/library-echarts'
 
 import ScrollTable from '@/components/scroll-table.vue'
@@ -71,7 +78,10 @@ export default defineComponent({
     ScrollTable,
     WordCloudEchart,
     LineEchart,
-    OverviewEchart
+    OverviewEchart,
+    YearTop,
+    MonthTop,
+    BookSum
   },
 
   setup() {

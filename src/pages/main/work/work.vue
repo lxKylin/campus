@@ -3,7 +3,7 @@
     <el-row class="work__row" :gutter="5">
       <el-col class="work__row__col" :span="5">
         <lx-card class="card" title="生源各项比例">
-          <water-polo-echart />
+          <ShengYuan />
         </lx-card>
       </el-col>
       <el-col class="work__row__col" :span="14">
@@ -14,6 +14,7 @@
       <el-col class="work__row__col" :span="5">
         <lx-card class="card" title="毕业生职业云图">
           <WordCloudWork />
+          <ShengXue />
         </lx-card>
       </el-col>
     </el-row>
@@ -25,7 +26,26 @@
       </el-col> -->
       <el-col class="work__row__col" :span="16">
         <lx-card class="card" title="各行业就业分布">
-          <line-echart />
+          <el-row>
+            <el-col :span="4">
+              <ItPolo />
+            </el-col>
+            <el-col :span="4">
+              <JinRongPolo />
+            </el-col>
+            <el-col :span="4">
+              <KaoGongPolo />
+            </el-col>
+            <el-col :span="4">
+              <KaoYanPolo />
+            </el-col>
+            <el-col :span="4">
+              <JianZhuPolo />
+            </el-col>
+            <el-col :span="4">
+              <HuLiPolo />
+            </el-col>
+          </el-row>
         </lx-card>
       </el-col>
       <el-col class="work__row__col" :span="8">
@@ -44,7 +64,20 @@ import {LxCard, LxCardTwo} from '@/base-ui/card'
 
 import { PieEchart, WordCloudEchart, LineEchart } from '@/components/library-echarts'
 import ScrollTable from '@/components/scroll-table.vue'
-import { MapEchart, WaterPoloEchart, WordCloudWork } from '@/components/work-echarts'
+import {
+  MapEchart,
+  WaterPoloEchart,
+  WordCloudWork,
+  WaterPolo,
+  ItPolo,
+  JinRongPolo,
+  KaoGongPolo,
+  KaoYanPolo,
+  JianZhuPolo,
+  HuLiPolo,
+  ShengYuan,
+  ShengXue
+} from '@/components/work-echarts'
 
 export default defineComponent({
   components: {
@@ -56,7 +89,16 @@ export default defineComponent({
     LineEchart,
     MapEchart,
     WaterPoloEchart,
-    WordCloudWork
+    WordCloudWork,
+    WaterPolo,
+    ItPolo,
+    JinRongPolo,
+    KaoGongPolo,
+    KaoYanPolo,
+    JianZhuPolo,
+    HuLiPolo,
+    ShengYuan,
+    ShengXue
   },
 
   setup() {

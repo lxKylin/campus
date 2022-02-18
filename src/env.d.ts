@@ -11,6 +11,7 @@ declare module 'bin-datav';
 declare module 'particles.vue3';
 declare module '@/utils/useDraw';
 declare module '@types/jquery';
+declare module '@/utils/socket_service';
 
 declare module '*.json'
 declare module '*.json' {

@@ -9,7 +9,7 @@ import { CountUp } from 'countup.js'
 import type { CountUpOptions } from 'countup.js'
 const defaultOptions: CountUpOptions = {
   decimalPlaces: 2, // 保留两位
-  duration: 2, // 动画时长
+  duration: 100, // 动画时长
   separator: ',', // 千位分割
   decimal: '.', // 小数分割
   // prefix: '￥' // 单位

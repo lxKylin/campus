@@ -19,6 +19,12 @@ import store from './store'
 
 import Particles from 'particles.vue3'
 
+import SocketService from '@/utils/socket_service'
+// 对服务端进行websocket的连接
+// SocketService.Instance.connect()
+// 其他组件可以通过 this.$socket调用
+// App.prototype.$socket = SocketService.Instance
+
 const app = createApp(App)
 
 app.use(Particles)
@@ -32,6 +38,5 @@ app.use(BinDatav)
 app.use(store)
 
 app.use(router)
-
 
 app.mount('#app')

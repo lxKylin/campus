@@ -12,7 +12,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*":["src/*"]
-    }
+    },
+    "types": ["element-plus/global"]
   },
   "include": ["src/**/*.ts", "src/**/*.json", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/components/particles/particles.js", "src/components/particles/particles.js", "src/utils/useDraw.ts"]
 }

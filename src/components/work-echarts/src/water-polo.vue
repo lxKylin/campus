@@ -1,6 +1,7 @@
 <template>
-  <div class="water-po-echart">
+  <div class="water-polo">
     <base-echart :options="options"></base-echart>
+    <!-- <base-echart :options="options"></base-echart> -->
   </div>
 </template>
 
@@ -121,4 +122,8 @@ const options = computed(() => {
 })
 </script>
 
-<style scoped></style>
+<style lang="less" scope>
+.water-polo {
+  // display: flex;
+}
+</style>
