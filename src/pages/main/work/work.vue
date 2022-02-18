@@ -4,6 +4,8 @@
       <el-col class="work__row__col" :span="5">
         <lx-card class="card" title="生源各项比例">
           <ShengYuan />
+          <div class="titleOne">校友行业分布</div>
+          <FenBu class="fen-bu" />
         </lx-card>
       </el-col>
       <el-col class="work__row__col" :span="14">
@@ -14,18 +16,14 @@
       <el-col class="work__row__col" :span="5">
         <lx-card class="card" title="毕业生职业云图">
           <WordCloudWork />
-          <ShengXue />
+          <div class="title">FIT历年本科生升学情况</div>
+          <ShengXue class="sheng-xue" />
         </lx-card>
       </el-col>
     </el-row>
     <el-row class="work__row" :gutter="5">
-      <!-- <el-col class="work__row__col" :span="4">
-        <lx-card class="card" title="书籍借阅云图">
-          <word-cloud-echart class="echart" />
-        </lx-card>
-      </el-col> -->
       <el-col class="work__row__col" :span="16">
-        <lx-card class="card" title="各行业就业分布">
+        <lx-card class="card" title="各行业就业选择比例">
           <el-row>
             <el-col :span="4">
               <ItPolo />
@@ -49,8 +47,8 @@
         </lx-card>
       </el-col>
       <el-col class="work__row__col" :span="8">
-        <lx-card class="card" title="活动公告">
-
+        <lx-card class="card" title="校友活动公告">
+          <HuoDong />
         </lx-card>
       </el-col>
     </el-row>
@@ -76,7 +74,9 @@ import {
   JianZhuPolo,
   HuLiPolo,
   ShengYuan,
-  ShengXue
+  ShengXue,
+  HuoDong,
+  FenBu
 } from '@/components/work-echarts'
 
 export default defineComponent({
@@ -98,7 +98,9 @@ export default defineComponent({
     JianZhuPolo,
     HuLiPolo,
     ShengYuan,
-    ShengXue
+    ShengXue,
+    HuoDong,
+    FenBu
   },
 
   setup() {
@@ -114,12 +116,33 @@ export default defineComponent({
 .work {
   &__row {
     margin-bottom: 20px;
+    position: relative;
     &__col {
+      & .titleOne {
+        position: absolute;
+        text-align: center;
+        top: 330px;
+        left: 150px;
+      }
+      & .title {
+        position: absolute;
+        text-align: center;
+        top: 330px;
+        left: 110px;
+      }
+
+      & .fen-bu {
+        margin-top: 88px;
+      }
+      & .sheng-xue {
+        margin-top: 88px;
+      }
       & .card {
       }
       & .echart {
       }
     }
+
   }
 }
 </style>

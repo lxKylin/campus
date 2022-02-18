@@ -26,13 +26,14 @@ const props = withDefaults(
 
 const options = computed(() => {
   return {
-    title: {
-      text: 'FIT历年本科生升学情况',
-      left: 'center',
-      textStyle: {
-        color: '#fff'
-      }
-    },
+    // title: {
+    //   text: 'FIT历年本科生升学情况',
+    //   top: 'top',
+    //   left: 'center',
+    //   textStyle: {
+    //     color: '#fff'
+    //   }
+    // },
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -63,7 +64,7 @@ const options = computed(() => {
       }
     },
     grid: {
-      top: '15%',
+      top: '5%',
       left: '1%',
       right: '1%',
       bottom: '20%'

@@ -10,6 +10,8 @@ import JianZhuPolo from './src/jian-zhu-polo.vue';
 import HuLiPolo from './src/hu-li-polo.vue';
 import ShengYuan from './src/sheng-yuan.vue';
 import ShengXue from './src/sheng-xue.vue';
+import HuoDong from './src/huo-dong.vue';
+import FenBu from './src/fen-bu.vue';
 
 export {
   MapEchart,
@@ -23,5 +25,7 @@ export {
   JianZhuPolo,
   HuLiPolo,
   ShengYuan,
-  ShengXue
+  ShengXue,
+  HuoDong,
+  FenBu
 }
