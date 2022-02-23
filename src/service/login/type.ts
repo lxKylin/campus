@@ -1,10 +1,11 @@
 export interface IAccount {
-  username: string
+  name: string
   password: string
+  verify: string
 }
 
 export interface ILoginResult {
   id: number
   name: string
-  token: string
+  token: any
 }

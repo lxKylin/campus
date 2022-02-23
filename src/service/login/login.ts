@@ -13,7 +13,11 @@ enum LoginAPI {
 export function accountLoginRequest(account: IAccount) {
   return lxRequest.post<IDataType<ILoginResult>>({
     url: LoginAPI.AccountLogin,
-    data: account
+    data: {
+      name: account.name,
+      password: account.password,
+      captcha: account.verify
+    }
   })
 }
 
@@ -24,9 +28,9 @@ export function requestUserInfoById(id: number) {
   })
 }
 
-export function requestUserMenusByRoleId(id: number) {
-  return lxRequest.get<IDataType>({
-    url: LoginAPI.UserMenus + id + '/menu',
-    showLoading: false
-  })
-}
+// export function requestUserMenusByRoleId(id: number) {
+//   return lxRequest.get<IDataType>({
+//     url: LoginAPI.UserMenus + id + '/menu',
+//     showLoading: false
+//   })
+// }

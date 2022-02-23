@@ -1,6 +1,6 @@
 <template>
   <div class="login-panel">
-    <!-- <h1 class="title">智慧校园可视化大屏</h1> -->
+    <h1 class="title">智慧校园可视化大屏</h1>
     <div class="tabs">
       <login-account ref="accountRef" />
     </div>
@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import LoginAccount from './login-account3.vue'
+import LoginAccount from './login-account9.vue'
 import LoginPhone from './login-phone.vue'
 
 export default defineComponent({

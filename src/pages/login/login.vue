@@ -6,27 +6,27 @@
     <div class="login__wrap">
       <div class="login__box">
         <div class="login__title">
-          <div class="login__title__content" :class="{ msie }">
-            智慧校园可视化大屏
+          <div class="login__title__content">
+            校园大数据可视化分析系统
           </div>
         </div>
         <el-form
-          ref="form"
+          ref="formRef"
           class="login__form"
           label-width="70px"
           label-position="left"
-          :model="user"
+          :model="account"
           :rules="rules"
-          @submit.native=""
         >
-          <el-form-item prop="username">
+          <el-form-item prop="name">
             <div class="login__form__item">
               <img class="icon" src="@/assets/img/login-icon-account.png" />
               <div class="label">账号：</div>
               <el-input
                 type="text"
                 class="two-words"
-                v-model.trim="user.username"
+                v-model.trim="account.name"
+                placeholder="Kylin"
               ></el-input>
             </div>
           </el-form-item>
@@ -37,8 +37,9 @@
               <el-input
                 type="password"
                 class="two-words"
-                v-model.trim="user.password"
+                v-model.trim="account.password"
                 show-password
+                placeholder="123456"
               ></el-input>
             </div>
           </el-form-item>
@@ -50,9 +51,15 @@
                 <el-input
                   type="text"
                   class="three-words"
-                  v-model.trim="user.vcode"
+                  v-model.trim="account.verify"
                 ></el-input>
-                <img class="code" :src="vcodeUrl" alt="" @click="" />
+                <img
+                  class="code"
+                  :src="defaultImgUrl"
+                  alt=""
+                  @click="refreshImg"
+                />
+                <!-- <el-image :src="defaultImgUrl" @click="refreshImg"></el-image> -->
               </div>
             </div>
           </el-form-item>
@@ -61,10 +68,9 @@
             <el-link type="primary">忘记密码</el-link>
           </div>
           <button
-            type="submit"
             class="login__btn"
             :disabled="loading"
-            @click=""
+            @click.prevent="handleDialog(true)"
           >
             {{ loading ? '登录中...' : '登录' }}
           </button>
@@ -75,41 +81,85 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, reactive, onMounted } from 'vue'
+import { ElForm } from 'element-plus'
 // import loginPanel from './cpns/login-panel2.vue'
 import { particles } from './config/particles-config'
 // import Particles from '@/components/particles/index.vue'
+
+import { useStore } from 'vuex'
+import localCache from '@/utils/cache'
+import randomImgUrl from '@/utils/random-imgurl'
+
+import { rules } from './config/account-config'
 
 export default defineComponent({
   components: {
     // loginPanel
     // Particles
   },
-  data() {
-    return {
-      msie: 'ActiveXObject' in window,
-      // 定时器
-      intervalId: null,
-      vcodeUrl: '',
-      user: {
-        username: '',
-        password: '',
-        vcode: ''
-      },
-      rules: {
-        username: [{ required: true, message: '请输入账号', trigger: 'blur' }],
-        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
-        vcode: [{ required: true, message: '请输入验证码', trigger: 'blur' }]
-      },
-      loading: false,
-      isExchange: false
-    }
-  },
   setup() {
+    const loading = ref(false)
+    onMounted(() => {
+      if (localCache.getCache('name') && localCache.getCache('password')) {
+        account.name = localCache.getCache('name')
+        account.password = localCache.getCache('password')
+      }
+    })
     const isKeepPassword = ref(true)
+    const defaultImgUrl = ref<string>('/api/code')
+    // const dialogVisible = ref<boolean>(false)
+
+    const store = useStore()
+
+    const loginAction = (isKeepPassword: boolean) => {
+      formRef.value?.validate((valid) => {
+        if (valid) {
+          // 判断是否需要记录密码
+          if (isKeepPassword) {
+            localCache.setCache('name', account.name)
+            localCache.setCache('password', account.password)
+          } else {
+            localCache.deleteCache('name')
+            localCache.deleteCache('password')
+          }
+          // dialogVisible.value = true
+          refreshImg()
+        }
+      })
+    }
+
+    const account = reactive({
+      name: '',
+      password: '',
+      verify: ''
+    })
+
+    const formRef = ref<InstanceType<typeof ElForm>>()
+    const handleDialog = (mark: boolean) => {
+      // dialogVisible.value = false
+      // debugger
+      console.log(mark, '222')
+      if (mark) {
+        loginAction(isKeepPassword.value) // 存储密码
+        store.dispatch('loginModule/accountLoginAction', { ...account })
+      }
+    }
+    const refreshImg = () => {
+      defaultImgUrl.value = randomImgUrl(defaultImgUrl.value)
+    }
     return {
+      account,
+      rules,
+      loading,
+      formRef,
       particles,
-      isKeepPassword
+      // dialogVisible,
+      handleDialog,
+      loginAction,
+      isKeepPassword,
+      defaultImgUrl,
+      refreshImg
     }
   }
 })

@@ -10,7 +10,7 @@ export const rules = {
     },
     // 规则二
     {
-      pattern: /^[a-zA-Z0-9]{5,11}$/, //正则，a-z 0-9 五位到十一位
+      pattern: /^[a-zA-Z0-9]{1,11}$/, //正则，a-z 0-9 1位到十一位
       message: '用户名必须是5~11个字母或数字',
       trigger: 'blur'
     }

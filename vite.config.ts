@@ -4,7 +4,7 @@ import path from 'path'
 const resolve = (dir: string) => path.join(__dirname, dir);
 
 const fePort = 3333
-const serverOrigin = 'localhost:8000'
+const serverOrigin = 'http://localhost:9999'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -24,10 +24,13 @@ export default defineConfig({
     strictPort: true, // 若3333端口被占用,直接结束项目
     proxy: {
       // 选项写法
-      "/api": {
+      "^/api": {
         target: serverOrigin,
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        // pathRewrite: {
+        //   '^/api': '/api'
+        // },
+        rewrite: (path) => path.replace(/^\/api/, "/api"),
       },
     },
   },
