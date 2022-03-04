@@ -10,9 +10,11 @@ import 'echarts-wordcloud'
 
 import { BaseEchart } from '@/base-ui/echart'
 
-import { nameList } from '../constant'
+import { getOccupationList } from '@/service/work/work'
 
-import { computed, defineProps, withDefaults, reactive } from 'vue'
+// import { nameList } from '../constant'
+
+import { computed, defineProps, withDefaults, reactive, onMounted, onUpdated } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -72,6 +74,23 @@ let bgColor = 'transparent'
 let canDraggable = false
 
 let list: any = reactive([])
+let nameList: string[] = reactive([])
+
+const init = async () => {
+  await getOccupationList().then((res) => {
+    // console.log(res.data, '222');
+    const listData = res.data
+    console.log(listData, '23')
+    listData.forEach((item: any, index: any) => {
+      nameList.push(item.occupation)
+    })
+  })
+}
+
+onMounted(async () => {
+  await init()
+  addList()
+})
 
 const addList = () => {
   nameList.forEach((item) => {
@@ -88,49 +107,14 @@ const addList = () => {
       }
     })
   })
+    console.log(list,nameList, '7');
 }
 
-addList()
+// addList()
 
 
 const options = computed(() => {
   return {
-    // tooltip: {
-    //   formatter: function (p: any) {
-    //     return `${p.data.name} ${p.data.value}`
-    //   }
-    // },
-    // series: [
-    //   {
-    //     type: 'wordCloud',
-    //     shape: 'circle',
-    //     left: 'center',
-    //     top: 'center',
-    //     right: null,
-    //     bottom: null,
-    //     width: '100%',
-    //     height: '100%',
-    //     sizeRange: [20, 40],
-    //     rotationRange: [0, 0],
-    //     gridSize: 16,
-    //     drawOutOfBound: false,
-    //     data: seriesData,
-    //     //随机生成字体颜色
-    //     textStyle: {
-    //       color: function () {
-    //         return (
-    //           'rgb(' +
-    //           [
-    //             Math.round(Math.random() * 255),
-    //             Math.round(Math.random() * 255),
-    //             Math.round(Math.random() * 255)
-    //           ].join(',') +
-    //           ')'
-    //         )
-    //       }
-    //     }
-    //   }
-    // ]
     color: ['#37A2DA', '#32C5E9', '#67E0E3'],
     title: {
       show: false,

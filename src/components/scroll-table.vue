@@ -17,7 +17,7 @@ import { getBorrowList } from '@/service/library/library'
 export default defineComponent({
   setup() {
     let config = reactive({
-      header: ['序号', '书籍名','读者姓名', '流动事务', '时间'],
+      header: ['序号', '书籍名', '读者姓名', '流动事务', '时间'],
       data: [],
       // data: [
       //   ['2021-12-30 17:10:10', 'Kylin', '[续借]《毕业当兵去》'],
@@ -50,19 +50,18 @@ export default defineComponent({
     const init = async () => {
       await getBorrowList().then((res) => {
         // console.log(res.data, '222');
-        const data = res.data;
+        const data = res.data
         // console.log([...data], '333');
         data.forEach((item: any) => {
           const arr: any = Object.keys(item).map((i) => item[i])
           config.data.push(arr)
         })
         // config.data.push([...data])
-
       })
     }
 
-    onMounted(() => {
-      init()
+    onMounted(async () => {
+      await init()
     })
 
     return {

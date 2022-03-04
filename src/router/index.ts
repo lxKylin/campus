@@ -20,6 +20,24 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/pages/main/main.vue')
     // children: [] -> 根据useMenus来决定
   },
+  // {
+  //   path: '/campus',
+  //   name: 'campus',
+  //   component: () => import('@/pages/main/overview/overview.vue')
+  //   // children: [] -> 根据useMenus来决定
+  // },
+  // {
+  //   path: '/work',
+  //   name: 'work',
+  //   component: () => import('@/pages/main/work/work.vue')
+  //   // children: [] -> 根据useMenus来决定
+  // },
+  // {
+  //   path: '/library',
+  //   name: 'library',
+  //   component: () => import('@/pages/main/library/library.vue')
+  //   // children: [] -> 根据useMenus来决定
+  // },
   {
     path: '/:pathMatch(.*)*',
     name: 'notFound',

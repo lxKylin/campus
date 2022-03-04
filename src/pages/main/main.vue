@@ -50,7 +50,6 @@
         </div>
       </div>
       <div class="index__modules">
-        <!-- <library /> -->
         <component :is="nameComp[tab]"></component>
       </div>
     </div>
@@ -58,9 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineComponent, reactive, ref, onMounted, onBeforeUnmount } from 'vue'
-
-import { particles } from './config/particles-config'
+import { reactive, ref, onMounted, onBeforeUnmount } from 'vue'
 
 import { title, modulesTitle, WEEK } from '@/constant/index'
 

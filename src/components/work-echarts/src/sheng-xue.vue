@@ -6,7 +6,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, withDefaults } from 'vue'
+import { computed, defineProps, withDefaults, reactive, onMounted } from 'vue'
+
+import { getStudyList } from '@/service/work/work'
 
 import * as echarts from 'echarts'
 import 'echarts-liquidfill'
@@ -24,16 +26,28 @@ const props = withDefaults(
   }
 )
 
+// const data = reactive([3, 4, 6, 5, 6, 7])
+const dataX: number[] = reactive([])
+const dataY: number[] = reactive([])
+
+const init = async () => {
+  await getStudyList().then((res) => {
+    // console.log(res.data, '222');
+    const list = res.data
+    console.log(list, '333')
+    list.forEach((item: any, index: any) => {
+      dataX.push(item.year)
+      dataY.push(item.number)
+    })
+  })
+}
+
+onMounted(async () => {
+  await init()
+})
+
 const options = computed(() => {
   return {
-    // title: {
-    //   text: 'FIT历年本科生升学情况',
-    //   top: 'top',
-    //   left: 'center',
-    //   textStyle: {
-    //     color: '#fff'
-    //   }
-    // },
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -91,7 +105,7 @@ const options = computed(() => {
         axisTick: {
           show: false
         },
-        data: ['2016', '2017', '2018', '2019', '2020', '2021']
+        data: dataX
       }
     ],
     yAxis: [
@@ -175,7 +189,7 @@ const options = computed(() => {
             shadowBlur: 20 //shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
           }
         },
-        data: [3, 4, 6, 5, 6, 7]
+        data: dataY
       }
     ]
   }

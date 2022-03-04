@@ -2,7 +2,9 @@ import lxRequest from '../index'
 
 enum work {
   enrollmentList = '/enrollment/list',
-  activeList = '/active/list'
+  activeList = '/active/list',
+  studyList = '/study/list',
+  occupationList = '/occupation/list'
 }
 
 export function getEnrollmentData() {
@@ -21,6 +23,26 @@ export function getActiveList() {
     params: {
       offset: 0,
       size: 10
+    }
+  })
+}
+
+export function getStudyList() {
+  return lxRequest.get({
+    url: work.studyList,
+    params: {
+      offset: 0,
+      size: 10
+    }
+  })
+}
+
+export function getOccupationList() {
+  return lxRequest.get({
+    url: work.occupationList,
+    params: {
+      offset: 0,
+      size: 30
     }
   })
 }

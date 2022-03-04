@@ -59,15 +59,13 @@ export default defineComponent({
         title: '18届物联网工程校友聚会',
         time: '2022-01-15',
         address: '福州贵安新天地君源大酒店',
-        content:
-          '同学聚会，交流交流'
+        content: '同学聚会，交流交流'
       },
       {
         title: '19届物联网工程校友聚会',
         time: '2022-01-15',
         address: '福州贵安新天地君源大酒店',
-        content:
-          '同学聚会，交流交流'
+        content: '同学聚会，交流交流'
       }
     ])
 
@@ -87,8 +85,8 @@ export default defineComponent({
       })
     }
 
-    onMounted(() => {
-      init()
+    onMounted(async () => {
+      await init()
     })
 
     return {
