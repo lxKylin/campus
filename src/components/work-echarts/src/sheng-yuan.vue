@@ -1,12 +1,13 @@
 <template>
   <div class="kao-yan-polo">
     <base-echart :options="options"></base-echart>
-    <!-- <base-echart :options="options"></base-echart> -->
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, withDefaults } from 'vue'
+import { computed, defineProps, withDefaults, onMounted, reactive } from 'vue'
+
+import { getEnrollmentData } from '@/service/work/work'
 
 import * as echarts from 'echarts'
 import 'echarts-liquidfill'
@@ -186,7 +187,7 @@ var colorList = [
       }
     ],
     globalCoord: false // 缺省为 false
-  },
+  }
 ]
 var colorLine = [
   '#33C0CD',
@@ -219,46 +220,52 @@ function getRich() {
   })
   return result
 }
-const data = [
-  {
-    name: '浙江',
-    value: 40
-  },
-  {
-    name: '江西',
-    value: 110
-  },
-  {
-    name: '山东',
-    value: 35
-  },
-  {
-    name: '安徽',
-    value: 30
-  },
-  {
-    name: '河南',
-    value: 47
-  },
-  {
-    name: '广西',
-    value: 15
-  },
-  {
-    name: '四川',
-    value: 17
-  },
-  {
-    name: '贵州',
-    value: 20
-  },
-  {
-    name: '甘肃',
-    value: 10
-  }
-].sort((a, b) => {
-  return b.value - a.value
+
+// const data = reactive([
+//   {
+//     name: '浙江',
+//     value: 200
+//   },
+//   {
+//     name: '江西',
+//     value: 110
+//   },
+//   {
+//     name: '山东',
+//     value: 35
+//   },
+//   {
+//     name: '安徽',
+//     value: 30
+//   },
+//   {
+//     name: '河南',
+//     value: 47
+//   },
+//   {
+//     name: '广西',
+//     value: 15
+//   },
+//   {
+//     name: '四川',
+//     value: 17
+//   },
+//   {
+//     name: '贵州',
+//     value: 20
+//   },
+//   {
+//     name: '甘肃',
+//     value: 10
+//   }
+// ]).sort((a, b) => {
+//   return b.value - a.value
+// })
+
+const data: any = reactive([]).sort((a, b) => {
+  return b - a
 })
+
 data.forEach((v: any, i: any) => {
   v.labelLine = {
     lineStyle: {
@@ -302,6 +309,29 @@ const options = computed(() => {
       }
     ]
   }
+})
+
+const init = async () => {
+  await getEnrollmentData().then((res) => {
+    // console.log(res.data, '222');
+    const list = res.data
+    // console.log(list, '333')
+    list.forEach((item: any, index: any) => {
+      if (index > 0) {
+        // console.log(item, '999');
+        // data.length = 0
+        data.push({
+          name: item.province,
+          value: item.number
+        })
+      }
+      // console.log(data, '88');
+    })
+  })
+}
+
+onMounted(() => {
+  init()
 })
 </script>
 
