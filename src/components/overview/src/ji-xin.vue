@@ -28,24 +28,24 @@ let echartData = {
   inner: [
     {
       value: 665,
-      unit: '人',
+      // unit: '人',
       name: '计信学院'
     },
   ],
   outer: [
     {
       value: 60,
-      unit: '人',
+      // unit: '人',
       name: '物联网工程'
     },
     {
       value: 60,
-      unit: '人',
+      // unit: '人',
       name: '通信工程'
     },
     {
       value: 120,
-      unit: '人',
+      // unit: '人',
       name: '电子信息工程'
     },
     {
@@ -55,7 +55,7 @@ let echartData = {
     },
     {
       value: 60,
-      unit: '个',
+      // unit: '个',
       name: '网络工程'
     },
     {
@@ -65,12 +65,12 @@ let echartData = {
     },
     {
       value: 60,
-      unit: '人',
+      // unit: '人',
       name: '智能科学与技术'
     },
     {
       value: 61,
-      unit: '人',
+      // unit: '人',
       name: '数学与应用数学'
     },
   ]

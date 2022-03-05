@@ -196,8 +196,9 @@ onBeforeUnmount(() => {
       color: #548ae7;
     }
     .title {
+      color: #7ee4f2;
       position: relative;
-      width: 500px;
+      width: 600px;
       text-align: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -298,6 +299,7 @@ onBeforeUnmount(() => {
     padding: 0 10px;
   }
   .text {
+    color: #7ee4f2;
     position: relative;
     overflow: hidden;
     &::after {

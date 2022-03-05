@@ -14,7 +14,7 @@
         </lx-card>
       </el-col>
       <el-col class="work__row__col" :span="12">
-        <lx-card class="card" title="FIT校园大事件">
+        <lx-card class="card" title="校园大事件">
           <View />
         </lx-card>
       </el-col>
@@ -35,7 +35,7 @@
         </lx-card>
       </el-col>
       <el-col class="work__row__col" :span="12">
-        <lx-card class="card" title="FIT部门/社团活动预告">
+        <lx-card class="card" title="部门/社团活动预告">
           <YuGao />
         </lx-card>
       </el-col>
@@ -47,12 +47,12 @@
     </el-row>
     <el-row class="work__row" :gutter="5">
       <el-col class="work__row__col" :span="16">
-        <lx-card class="card" title="校部门/社团Top10">
+        <lx-card class="card" title="校部门/社团Top">
           <BuMenAndSheTuan />
         </lx-card>
       </el-col>
       <el-col class="work__row__col" :span="8">
-        <lx-card class="card" title="开设学院及专业">
+        <lx-card class="card" title="开设学院及专业招生数">
           <XueYuan />
         </lx-card>
       </el-col>

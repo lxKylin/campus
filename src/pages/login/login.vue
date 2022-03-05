@@ -7,7 +7,7 @@
       <div class="login__box">
         <div class="login__title">
           <div class="login__title__content">
-            校园大数据可视化分析系统
+            校园数据可视化分析系统
           </div>
         </div>
         <el-form

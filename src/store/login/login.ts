@@ -41,7 +41,7 @@ const loginModule: Module<ILoginState, IRootState> = {
       // accountLoginRequest(payload)
       // console.log(loginResult)
       const loginResult = await accountLoginRequest(payload)
-      console.log(loginResult)
+      // console.log(loginResult)
       const { token } = loginResult
       commit('changeToken', token)
       // 本地缓存token

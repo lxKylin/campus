@@ -1,7 +1,7 @@
 // 大屏名称
-export const title = '校园大数据可视化分析系统'
+export const title = '校园数据可视化分析系统'
 // 模块名称
-export const modulesTitle = ['FIT校园信息总览', 'FIT学生/就业指导中心', 'FIT图书馆数据分析']
+export const modulesTitle = ['校园信息总览', '学生/就业指导中心', '图书馆数据分析']
 
 // 星期
 export const WEEK = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
