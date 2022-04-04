@@ -29,7 +29,7 @@ let echartData = {
     {
       value: 665,
       unit: '人',
-      name: '建筑学院'
+      name: '应工学院'
     },
   ],
   outer: [
