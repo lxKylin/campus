@@ -26,7 +26,6 @@
                 type="text"
                 class="two-words"
                 v-model.trim="account.name"
-                placeholder="Kylin"
               ></el-input>
             </div>
           </el-form-item>
@@ -39,7 +38,6 @@
                 class="two-words"
                 v-model.trim="account.password"
                 show-password
-                placeholder="123456"
               ></el-input>
             </div>
           </el-form-item>
