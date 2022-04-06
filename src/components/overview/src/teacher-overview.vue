@@ -25,20 +25,20 @@ const props = withDefaults(
 
 const data = reactive([
   {
-    name: '初级教师',
-    value: 100
-  },
-  {
-    name: '中级教师',
+    name: '助教',
     value: 75
   },
   {
-    name: '高级教师',
+    name: '讲师',
     value: 50
   },
   {
-    name: '特级教师',
-    value: 25
+    name: '副教授',
+    value: 10
+  },
+  {
+    name: '教授',
+    value: 10
   }
 ])
 
