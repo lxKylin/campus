@@ -44,6 +44,7 @@
               <div class="text">
                 {{ timeInfo.dateYear }} {{ timeInfo.dateWeek }}
                 {{ timeInfo.dateDay }}
+                <span class="exit" @click="handleExitClick">退出登录</span>
               </div>
             </div>
           </div>
@@ -67,6 +68,9 @@ import { formatTime } from '@/utils/time-format'
 import Library from './library/library.vue'
 import Work from './work/work.vue'
 import OverView from './overview/overview.vue'
+
+import localCache from '@/utils/cache'
+import { useRouter } from 'vue-router'
 
 // 加载标识
 const loading = ref<boolean>(true)
@@ -116,6 +120,13 @@ const handleTime = () => {
     timeInfo.dateYear = formatTime(date, 'yyyy-MM-dd')
     timeInfo.dateWeek = WEEK[date.getDay()]
   }, 1000)
+}
+
+// 退出登录
+const router = useRouter()
+const handleExitClick = () => {
+  localCache.deleteCache('token')
+  router.push('/login')
 }
 
 onMounted(() => {
@@ -313,6 +324,10 @@ onBeforeUnmount(() => {
       z-index: -10;
       animation: scanning 2s infinite linear;
       opacity: 0.7;
+    }
+    .exit {
+      cursor:pointer;
+      margin-left: 20px;
     }
   }
 }
