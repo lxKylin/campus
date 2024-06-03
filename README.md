@@ -1,11 +1,13 @@
-# Vue 3 + Typescript + Vite
+# 可视化大屏
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+### 登录页面
+![登录页面](./src/assets/img/images/登录页面.png)
 
-## Recommended IDE Setup
+### 信息总览
+![信息总览](./src/assets/img/images/信息总览.png)
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+### 学生&就业
+![信息总览](./src/assets/img/images/学生&就业.png)
 
-## Type Support For `.vue` Imports in TS
-
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+### 图书馆数据分析
+![图书馆数据分析](./src/assets/img/images/图书馆数据分析.png)
